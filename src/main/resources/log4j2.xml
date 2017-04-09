@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<Configuration status="INFO">
+	<Appenders>
+		<RollingFile name="FILEOUT_INFO"
+			fileName="/home/admin/logs/61nlfe/teser-61nlfe-WARN.log"
+			filePattern="/home/admin/logs/61nlfe/teser-61nlfe-WARN-%d{yyyyMMddHHmmss}.log">
+			<PatternLayout
+				pattern="[%-5p %d{yyyy-MM-dd HH:mm:ss,SSS}] [THREAD:%t] %c(%L):%m%n" />
+			<BufferedIO value="true" />
+			<BufferSize value="10240" />
+			<SizeBasedTriggeringPolicy size="1024M" />
+			<ThresholdFilter level="INFO" />
+		</RollingFile>
+		<RollingFile name="FILEOUT_ERROR"
+			fileName="/home/admin/logs/61nlfe/teser-61nlfe-ERROR.log"
+			filePattern="/home/admin/logs/61nlfe/teser-61nlfe-ERROR-%d{yyyyMMddHHmmss}.log">
+			<PatternLayout
+				pattern="[%-5p %d{yyyy-MM-dd HH:mm:ss,SSS}] [THREAD:%t] %c(%L):%m%n" />
+			<BufferedIO value="true" />
+			<BufferSize value="10240" />
+			<SizeBasedTriggeringPolicy size="1024M" />
+			<ThresholdFilter level="ERROR" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="FILEOUT_INFO" />
+			<AppenderRef ref="FILEOUT_ERROR" />
+		</Root>
+	</Loggers>
+</Configuration>
